@@ -1,0 +1,47 @@
+
+export default function useStorage() 
+{
+
+  function setUserName(userName:string ='')
+  {
+    localStorage.setItem("userName", JSON.stringify(userName))
+    return
+  }
+
+  function getUserName()
+  {
+    const saved = localStorage.getItem("userName");
+    return saved? JSON.parse(saved) : null;
+  }
+
+  // function setPosts( title:string="", content:string="", creator:string="")
+  // {
+
+  //   const savedPosts = getPosts();
+    
+  //   const post = {
+  //     id: savedPosts.length + 1,
+  //     createdDatetime: new Date(),
+  //     title,
+  //     content,
+  //     creator
+  //   }
+    
+  //   savedPosts.push(post)
+  //   const curremtPosts = JSON.stringify(savedPosts);
+  //   localStorage.setItem("posts", curremtPosts);
+
+  //   return 
+  // }
+
+  // function getPosts()
+  // {
+  //   const saved = localStorage.getItem("posts");
+  //   return saved? JSON.parse(saved) : [];
+  // }
+
+  return [
+    setUserName,
+    getUserName,
+  ]
+}
